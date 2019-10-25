@@ -11,6 +11,8 @@ class UserProfile(models.Model):
     image = models.ImageField(upload_to='accounts',default='accounts/user.png',blank = True)
     def __str__(self):
         return self.user.username
+    def get_absolute_url(self):
+        return reverse('profile-detail', kwargs={'id': self.id})
         
 #creating the userprofile for the superusers
 def create_profile(sender, **kwargs):

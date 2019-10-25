@@ -12,6 +12,7 @@ def view_post(request):
     posts = Post.objects.order_by('date').reverse()
     args = {'form':form,'posts':posts}
     return render(request,'forum/view.html',args)
+    
 
     
 @login_required

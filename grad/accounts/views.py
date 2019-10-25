@@ -1,10 +1,11 @@
-from django.shortcuts import render,HttpResponse,redirect
+from django.shortcuts import render,HttpResponse,redirect,get_object_or_404
 from django.contrib.auth.forms import UserCreationForm,PasswordChangeForm
 from accounts.forms import RegistrationForm,UserUpdateForm,ProfileUpdateForm
 from django.contrib.auth.models import User
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from . models import UserProfile
 # Create your views here.
 
 
@@ -55,5 +56,7 @@ def change_password(request):
         args = {'form': form}
         return render(request,'accounts/change_password.html',args)  
 
-def test_view(request):
-    return render(request,'accounts/base.html')
+def view_profile(request,id):
+    post= get_object_or_404(UserProfile, user_id=id)
+    return render(request,'accounts/view_profile.html',{'post':post})
+    

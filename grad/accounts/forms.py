@@ -43,3 +43,13 @@ class ProfileUpdateForm(forms.ModelForm):
             'city',
             'image',
         )
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = {
+            'description',
+            'website',
+            'city',
+            'image',
+        }
