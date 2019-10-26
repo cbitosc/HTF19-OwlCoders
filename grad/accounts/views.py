@@ -60,3 +60,15 @@ def view_profile(request,id):
     post= get_object_or_404(UserProfile, user_id=id)
     return render(request,'accounts/view_profile.html',{'post':post})
     
+def subscribe(request,id):
+        post = get_object_or_404(UserProfile,user_id = id)
+        post.subscribe = True
+        post.save()
+        return redirect('/forum/')
+
+
+def sub_success(request):
+    return render(request,'accounts/sub_success.html')
+
+def sub(request):
+    return render(request,'accounts/subscribe.html')

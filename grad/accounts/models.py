@@ -9,6 +9,7 @@ class UserProfile(models.Model):
     city = models.CharField(max_length=50,default='')
     website = models.URLField(default='')
     image = models.ImageField(upload_to='accounts',default='accounts/user.png',blank = True)
+    subscribe = models.BooleanField(default = False)
     def __str__(self):
         return self.user.username
     def get_absolute_url(self):
