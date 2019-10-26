@@ -12,8 +12,7 @@ urlpatterns = [
     path('profile/edit/',views.edit_profile,name='edit_profile'),
     path('change-password/',views.change_password,name='change_password'),
     path('profile/<int:id>/',views.view_profile,name="profile-detail"),
-    path('subscribe/',views.sub,name='sub'),
     path('subscribe/<int:id>/',views.subscribe,name='subscribe'),
-    path('sub-success/',views.sub_success,name='sub-success'),
+    # path('sub-success/',views.sub_success,name='sub-success'),
     # path('test/',views.test_view,name = 'test'),
 ]

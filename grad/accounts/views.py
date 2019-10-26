@@ -66,9 +66,3 @@ def subscribe(request,id):
         post.save()
         return redirect('/forum/')
 
-
-def sub_success(request):
-    return render(request,'accounts/sub_success.html')
-
-def sub(request):
-    return render(request,'accounts/subscribe.html')

@@ -5,7 +5,15 @@
 {% endblock %}
 
 {% block body %}
-    <img src="{% static 'hist.jpg ' %}" alt="My image" style="float: left;">
-    <img src="{% static 'pie1.jpg' %}" alt="My image"  style="float: left;">
-    <img src="{% static 'pie2.jpg' %}" alt="My image"  style="float: left;">
+
+<div class="row">
+    <img src="{% static '/pie/pie1.jpg' %}" alt="My image" style="display: block; margin:0px auto;"><br>
+</div>
+<br>
+<div class="row">
+    <img src="{% static 'hit.jpg' %}" alt="My" style="display: block; margin:0px auto;"><br>
+</div>
+
+  
+   
 {% endblock %}
