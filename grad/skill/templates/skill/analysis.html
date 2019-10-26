@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    {% load static %}
+{% endblock %}
+
+{% block body %}
+    <img src="{% static 'hist.jpg ' %}" alt="My image" style="float: left;">
+    <img src="{% static 'pie1.jpg' %}" alt="My image"  style="float: left;">
+    <img src="{% static 'pie2.jpg' %}" alt="My image"  style="float: left;">
+{% endblock %}
