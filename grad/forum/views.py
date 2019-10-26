@@ -5,6 +5,8 @@ from .models import Post
 from django.contrib.auth.models import User
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth import authenticate, login
+from accounts.models import UserProfile
+from django.core.mail import send_mail
 
 # Create your views here.
 def view_post(request):
@@ -23,6 +25,19 @@ def create_post(request):
             p = form.save(commit = False)
             p.user = request.user
             p.save()
+            post = UserProfile.objects.all().filter(subscribe = True)
+            ls = list()
+            for a in post:
+                posts = User.objects.all().filter(id = a.user_id)
+                for e in posts:
+                    ls.append(e.email)
+            send_mail (
+                'Confirmation mail',
+                'Hey check out the new post.You dont gotta miss on this one :3',
+                'peddi.vinil@gmail.com',
+                ls,
+        fail_silently = False,
+    )
             return redirect('/forum/')
     else:
         form = PostForm()
@@ -34,34 +49,6 @@ def full_post(request,id):
 	return render(request, 'forum/post.html', {'post':post})
 
 
-def tech_post(request):
-    form = PostForm()
-    posts = Post.objects.all().filter(category='Tech',).order_by('date').reverse()
-    args = {'form':form,'posts':posts}
-    return render(request,'forum/view.html',args)
 
-def news_post(request):
-    form = PostForm()
-    posts = Post.objects.all().filter(category='News').order_by('date').reverse()
-    args = {'form':form,'posts':posts}
-    return render(request,'forum/view.html',args)
-
-def music_post(request):
-    form = PostForm()
-    posts = Post.objects.all().filter(category='Music').order_by('date').reverse()
-    args = {'form':form,'posts':posts}
-    return render(request,'forum/view.html',args)
-
-def food_post(request):
-    form = PostForm()
-    posts = Post.objects.all().filter(category='Food').order_by('date').reverse()
-    args = {'form':form,'posts':posts}
-    return render(request,'forum/view.html',args)
-
-def envi_post(request):
-    form = PostForm()
-    posts = Post.objects.all().filter(category='Environment').order_by('date').reverse()
-    args = {'form':form,'posts':posts}
-    return render(request,'forum/view.html',args)
 
 
