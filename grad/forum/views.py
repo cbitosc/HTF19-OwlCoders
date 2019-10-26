@@ -37,7 +37,7 @@ def create_post(request):
                 'peddi.vinil@gmail.com',
                 ls,
         fail_silently = False,
-    )
+            )
             return redirect('/forum/')
     else:
         form = PostForm()

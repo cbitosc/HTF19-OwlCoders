@@ -26,4 +26,5 @@ urlpatterns = [
     path('forum/',include('forum.urls')),
     path('skill/',include('skill.urls')),
     path('about/',views.about,name="about"),
+    #path('clubs/',include('clubs.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

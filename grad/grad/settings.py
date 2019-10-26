@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'accounts',
     'forum',
     'skill',
+    'clubs',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

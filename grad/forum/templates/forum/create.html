@@ -164,11 +164,12 @@
                     <label for="id_description">Description</label>
                 </div>
                 <div class="form-label-group" id="article">
-                        <input type="text" name="article" maxlength="1000" class="form-control" required="" id="id_article">  
+                        <input type="text" rows=5 cols=50 name="article" class="form-control" maxlength="1000" required="" id="id_article">
                     <label for="id_article">Article</label>
                 </div>
                 <br>
-                <div class="form-group">
+                <br>
+                <!-- <div class="form-group">
                         <label for="id_category">Category</label>
                         <select name="category" required="" id="id_category" class="form-control" >
                                 <option value="" selected="">---------</option>
@@ -190,11 +191,11 @@
                                 <option value="Environment">Environment</option>
                               
                               </select>  
-                </div>
-                <div class="form-group">
+                </div> -->
+                <!-- <div class="form-group">
                         <label for="id_iamge">Image</label>
                         <input type="file" name="image" accept="image/*" class="form-control" id="id_image">  
-                </div>
+                </div> -->
                 <br>
                 <br>
                 <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" style="background-color: #ea4335;">Shoot!</button>
@@ -205,4 +206,9 @@
         </div>
         </div>
     </div>
+    <script>
+            $(document).ready( function () {
+                $("#but").remove();;
+      });
+        </script>
 {% endblock %}

@@ -39,25 +39,22 @@
         {% if user.is_authenticated %}
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/forum/">Home</a>
+            <a class="nav-link" href="/skill/add-skill/">Skills</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/about/">About</a>
+            <!-- <a class="nav-link" href="/account/subscribe/">Sub</a> -->
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/skill/add-skill/">Add Skill</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/account/subscribe/">Sub</a>
+              <a class="nav-link" href="/clubs/">Clubs</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/account/profile">Profile</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="/account/profile/edit"> Edit Profile</a>
+              <a class="nav-link" href="/account/profile/edit"> Edit</a>
             </li>
           <li class="nav-item">
-              <a class="nav-link" href="/forum/create-post">Contribute</a>
+              <a class="nav-link" href="/forum/create-post">Share</a>
           </li>
           <li class="nav-item">
             <li class="nav-item">
@@ -84,12 +81,6 @@
                 <a class="nav-link" href="/forum/food/">Food</a>
             </li> -->
             <li class="nav-item">
-              <a class="nav-link" href="/skill/add-skill/">Add Skill</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/forum/">Home</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="/about/">About</a>
             </li>
             <li class="nav-item">
@@ -104,14 +95,14 @@
     </div>
   </nav>
   <!-- Page Header -->
-  <header id="header" class="masthead" style="background-image: url(https://cdn.theatlantic.com/assets/media/img/mt/2019/08/Astronaut_Holding_DoubleTree_Cookie/lead_720_405.jpg?mod=1564771264)">
+  <header id="header" class="masthead" style="background-image: url(https://video-images.vice.com/articles/5d8cd4584fedd10009d87637/lede/1569510813600-hacking-the-cloud.png?crop=1xw:1xh;center,center&resize=700:*)">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>EXPLOR3 THE WRLD</h1>
-            <span class="subheading">I have these Lucid Dreams</span>
+            <h1>EXPERIENCE EXPO</h1>
+            <span class="subheading">Dream. Explore. Discover.</span>
           </div>
         </div>
       </div>
@@ -121,6 +112,14 @@
   {% block body %}
   
   {% endblock %}
+  <button class="btn btn-lg btn-primary btn-block text-uppercase" id="but" onclick="myFunction()" style="background-color: #030303;">Subscribe</button>
+  <script>
+      function myFunction() {
+        window.open("/account/subscribe/{{ request.user.id }}/","_self");
+        alert("SUCCESS");
+
+}
+  </script>
   <!-- Footer -->
   <footer>
     <div class="container">
